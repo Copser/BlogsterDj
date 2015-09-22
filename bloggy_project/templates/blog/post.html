@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="utf-8">
-      <title>Bloggy: {{ single_post.title }}</title>
-      
-  </head>
-  <body>
-      <h2>{{ single_post.title }}</h2>
-      <ul>
-          <p><em>{{ single_post.created_at }}</em></p>
-          <p>{{ single_post.content }}</p>
-          <p>Tag: {{single_post.tag }}</p>
-          <p>Views: {{single_post.views }}</p>
-          <br/>
-          <p>
-            {% if single_post.image %}
-            <img src="/media/{{ single_post.image }}" alt="">
-            {% endif %}
-          </p>
-      </ul>
-      <p>Had enough? Return <a href="/blog">home</a>.</p><br/>
-  </body>
-</html>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-
+{% block content %}
+<h2>{{ single_post.title }}</h2>
+<ul>
+    <p><em>{{ single_post.created_at }}</em></p>
+    <p>{{ single_post.content }}</p>
+    <p>Tag: {{ single_post.tag }}</p>
+    <p>Views: {{ single_post.views }}</p>
+    <br>
+    <p>
+        {% if single_post.image %}
+        <img src="/media/{{ single_post.image }}"/>
+        {% endif %}
+    </p>
+</ul>
+<p>Had enough? Return <a href="/blog"home</a></p>
+{% endblock %}
