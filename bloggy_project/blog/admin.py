@@ -6,7 +6,7 @@ from blog.models import Post
 class PostAdmin(admin.ModelAdmin):
 
     """Docstring for PostAdmin. """
-    list_dispaly = ('title', 'created_at')
+    list_dispaly = ('title', 'created_at', 'views')
 
 
 admin.site.register(Post, PostAdmin)
