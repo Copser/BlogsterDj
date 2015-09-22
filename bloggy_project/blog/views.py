@@ -6,16 +6,30 @@ from blog.models import Post
 # Create your views here.
 
 
+def encode_url(url):
+    """TODO: Docstring for encode_url.
+    :returns: TODO
+
+    """
+    return url.replace(' ', '_')
+
+
 def index(request):
     """TODO: Docstring for index.
     :returns: TODO
 
     """
     latest_posts = Post.objects.all().order_by('-created_at')
+    popular_posts = Post.objects.order_by("-views")[:5]
     t = loader.get_template('blog/index.html')
-    context_dict = {'latest_posts': latest_posts, }
+    context_dict = {
+        'latest_posts': latest_posts,
+        'popular_posts': popular_posts,
+    }
     for post in latest_posts:
-        post.url = post.title.replace(' ', '_')
+        post.url = encode_url(post.title)
+    for popular_post in popular_posts:
+        popular_post.url = encode_url(popular_post.title)
     c = Context(context_dict)
     return HttpResponse(t.render(c))
 
