@@ -1,8 +1,9 @@
 from django.http import HttpResponse
-from django.template import Context, loader
-from django.shortcuts import get_object_or_404
+from django.template import Context, loader, RequestContext
+from django.shortcuts import get_object_or_404, render_to_response, redirect
 
 from blog.models import Post
+from blog.forms import PostForm
 # Create your views here.
 
 
@@ -45,3 +46,22 @@ def post(request, slug):
     }
     c = Context(context_dict)
     return HttpResponse(t.render(c))
+
+
+def add_post(request):
+    """TODO: Docstring for add_post.
+    :returns: TODO
+
+    """
+    context = RequestContext(request)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():   # is the form valid?
+            form.save(commit=True)   # if yes, save it to database
+            return redirect(index)
+        else:
+            print form.errors   # no? dispaly errors to end user
+    else:
+        form = PostForm()
+    return render_to_response("blog/add_post.html", {'form': form},
+                              context)

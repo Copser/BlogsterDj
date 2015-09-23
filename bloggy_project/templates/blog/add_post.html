@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Add a Post</h2>  
+  <form id="post_form" action="/blog/add_post/" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for hidden in form.hidden_fields  %}
+        {{ hidden }}          
+      {% endfor %}
+        
+      {% for field in form.visible_fields  %}
+         {{ fields.errors }}
+         {{ label_tag }}
+         {{ field }}
+      {% endfor %}
+      <p><input type="submitl" name="submit" value="Create Post"></p>
+  </form>
+{% endblock %}
