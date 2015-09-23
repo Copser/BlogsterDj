@@ -1,18 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load bootstrap_tags %}
+<div class="form-vertical">
   <h2>Add a Post</h2>  
   <form id="post_form" action="/blog/add_post/" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {% for hidden in form.hidden_fields  %}
-        {{ hidden }}          
-      {% endfor %}
-        
-      {% for field in form.visible_fields  %}
-         {{ fields.errors }}
-         {{ label_tag }}
-         {{ field }}
-      {% endfor %}
-      <p><input type="submitl" name="submit" value="Create Post"></p>
+
+      {{ form | as_bootstrap }}
+
+      <input type="submit" name="submit" value="Create Post" class="btn btn-primary">
   </form>
+  <br/> 
+</div>
 {% endblock %}

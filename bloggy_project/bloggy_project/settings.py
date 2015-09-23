@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Local Apps
     'blog',
+    # Third party apps
+    'django_forms_bootstrap',
 )
 
 MIDDLEWARE_CLASSES = (
