@@ -10,3 +10,11 @@ Pillow==2.9.0
 argparse==1.2.1
 django-forms-bootstrap==3.0.1
 wsgiref==0.1.2
+Django==1.8.4
+Pillow==2.9.0
+Unidecode==0.04.18
+argparse==1.2.1
+django-forms-bootstrap==3.0.1
+django-uuslug==1.1.6
+python-slugify==1.1.4
+wsgiref==0.1.2
