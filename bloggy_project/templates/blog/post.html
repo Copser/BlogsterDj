@@ -17,9 +17,13 @@
             {% endif %}
             </p>
         </ul>
+        <p>Had enough? Return <a href="/blog">home</a></p>
 </div>
 <div class="col-md-4">
-<p>Had enough? Return <a href="/blog">home</a></p>
+    <h4>Must see:</h4>
+    {% for popular_post in popular_posts  %}
+    <li><a href="/blog/{{ popular.slug }}">{{ popular_post.title }}</a></li> 
+    {% endfor %}
 </div>
 </div>
 {% endblock %}
