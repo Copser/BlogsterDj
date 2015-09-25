@@ -26,3 +26,20 @@ def prepare():
 
     """
     push()
+
+
+# Heroku deployment
+def heroku():
+    """TODO: Docstring for heroku.
+    :returns: TODO
+
+    """
+    local("git push heroku master")
+
+
+def deploy():
+    """TODO: Docstring for deploy.
+    :returns: TODO
+
+    """
+    heroku()
