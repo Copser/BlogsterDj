@@ -1,1 +1,4 @@
 /development_settings.py
+
+.gitignore
+bloggy_project/bloggy_project/development_settings.py
