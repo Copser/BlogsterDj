@@ -11,7 +11,7 @@ DATABASES = {
         "NAME": "bloggy_db",
         "USER": "petarp",
         "PASSWORD": "gnomeregan",
-        "HOST": "",
-        "PORT": "",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
