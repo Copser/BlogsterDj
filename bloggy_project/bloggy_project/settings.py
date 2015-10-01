@@ -147,9 +147,14 @@ def get_cache():
         os.environ['MEMCACHE_PASSWORD'] = os.environ['MEMCACHIER_PASSWORD']
         return {
           'default': {
+              # Use pylimbc
               'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+              # Timeout is not the connection Timeout! It's the default
+              # timeout that should be applied to keys! 
               'TIMEOUT': 300,
+              # Use binary memcache protocol (needed for authentication)
               'BINARY': True,
+              # Enable faster IO
               'OPTINS': { 'tcp_nodelay': True }
           }
         }
