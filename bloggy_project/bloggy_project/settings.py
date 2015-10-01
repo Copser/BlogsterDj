@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     # Local Apps
     'blog',
     # Third party apps
@@ -51,6 +53,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # flatpages MIDDLEWARE_CLASSES
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     # memcache MIDDLEWARE_CLASSES
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,6 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bloggy_project.wsgi.application'
 
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -142,21 +147,21 @@ def get_cache():
     import os
     try:
         os.environ['MEMCACHE_SERVERS'] = os.environ['MEMCACHIER_SERVERS'].\
-                replace(',', ';')
+            replace(',', ';')
         os.environ['MEMCACHE_USERNAME'] = os.environ['MEMCACHIER_USERNAME']
         os.environ['MEMCACHE_PASSWORD'] = os.environ['MEMCACHIER_PASSWORD']
         return {
-          'default': {
-              # Use pylimbc
-              'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
-              # Timeout is not the connection Timeout! It's the default
-              # timeout that should be applied to keys! 
-              'TIMEOUT': 300,
-              # Use binary memcache protocol (needed for authentication)
-              'BINARY': True,
-              # Enable faster IO
-              'OPTINS': { 'tcp_nodelay': True }
-          }
+            'default': {
+                # Use pylimbc
+                'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+                # Timeout is not the connection Timeout! It's the default
+                # timeout that should be applied to keys!
+                'TIMEOUT': 300,
+                # Use binary memcache protocol (needed for authentication)
+                'BINARY': True,
+                # Enable faster IO
+                'OPTINS': { 'tcp_nodelay': True }
+            }
         }
     except:
         return {
