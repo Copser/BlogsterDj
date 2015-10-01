@@ -36,8 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'django.contrib.flatpages',
+    # 'django.contrib.sites',
+    # 'django.contrib.flatpages',
     # Local Apps
     'blog',
     # Third party apps
@@ -81,7 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bloggy_project.wsgi.application'
 
-SITE_ID = 2
+# SITE_ID = 1 
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
