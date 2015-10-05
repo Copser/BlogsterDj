@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'oi1+cyk&9g-n*nyiymkjzt6-es@!g7=edzpx+--rdsj4kw&4&3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -81,8 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bloggy_project.wsgi.application'
 
-SITE_ID = 1 
-
+SITE_ID = 1
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -160,14 +159,14 @@ def get_cache():
                 # Use binary memcache protocol (needed for authentication)
                 'BINARY': True,
                 # Enable faster IO
-                'OPTINS': { 'tcp_nodelay': True }
+                'OPTINS': {'tcp_nodelay': True}
             }
         }
     except:
         return {
-          'default': {
-              'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
-          }
+            'default': {
+                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+            }
         }
 
 CACHES = get_cache()
