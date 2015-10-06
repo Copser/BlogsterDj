@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'blog',
     # Third party apps
     'django_forms_bootstrap',
+    'django_markdown',
 )
 
 MIDDLEWARE_CLASSES = (
