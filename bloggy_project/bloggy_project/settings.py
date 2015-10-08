@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     # Local Apps
     'blog',
     # Third party apps
-#    'django_forms_bootstrap',
+    'django_forms_bootstrap',
     'django_markdown',
 )
 
