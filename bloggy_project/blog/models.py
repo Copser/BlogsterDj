@@ -10,7 +10,8 @@ class Post(models.Model):
     """Docstring for Post. """
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100)
-    content = MarkdownField()
+#    content = models.TextField()
+    body = MarkdownField()
     tag = models.CharField(max_length=20, blank=True, null=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
     views = models.IntegerField(default=0)

@@ -13,4 +13,4 @@ class PostForm(forms.ModelForm):
     class Meta:
         """Docstring for Meta. """
         model = Post
-        fields = ['title', 'content', 'tag', 'image']
+        fields = ['title', 'body', 'tag', 'image']

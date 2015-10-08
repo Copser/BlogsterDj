@@ -4,11 +4,10 @@ from blog.models import Post
 
 
 # Register your models here.
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(MarkdownModelAdmin):
 
     """Docstring for PostAdmin. """
     list_dispaly = ('title', 'created_at', 'views')
 
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(MarkdownModelAdmin)

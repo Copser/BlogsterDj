@@ -137,6 +137,9 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+# Markdown
+MARKDOWN_EDITOR_SKIN = 'simple'
+
 
 # Configuration MAMCAHCE
 def get_cache():
